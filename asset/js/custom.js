@@ -1,18 +1,19 @@
 var myApplication = new Vue({
     el: '#app',
     data: {
-        title: 'Hello Vue.js',
-        link: 'http://toplearn.com'
+        counter: 0
+    
     },
     methods: {
-        changeTitle: function (event) {
-            this.title = event.target.value;
+        increase: function(step){
+            this.counter+=step;
         },
-        sayHello: function(){
-            return 'Hello Ana joon';
-        },
-        sayBye:function(){
-            return this.title;
+        getCursor: function(event){
+            this.x = event.clientX;
+            this.y = event.clientY;
+
         }
+
     }
+
 });

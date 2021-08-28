@@ -1,30 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylsheet" type="text/css" href="asset/css/bootstrap.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylsheet" type="text/css" href="asset/css/bootstrap.min.css" />
     <title>practice</title>
-</head>
-<body>
+    <style>
+      .bordered {
+        border: 2px solid red;
+        width: 300px;
+        height: 300px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
     <div class="container">
-        <div class="row">
-            <div class="well">
-            <div id="app">
-                <input type="text" class="form-control" v-on:input="changeTitle">
-                <br>
-                <p>{{ title }}</p>
-                <p>{{ sayHello() }}</p>
-                <p>{{   sayBye() }}</p>
+      <div class="row">
+        <div class="well">
+          <div id="app">
+            <div class="col-md-3">
+              <a
+                class="btn btn-success btn-block"
+                style="width: 150px; height: 50px"
+                v-on:click="increase(3)"
+              >
+                {{counter}}
+              </a>
+              <p v-once>first:{{counter}}</p>
+              <p>second:{{counter}}</p>
+            </div>
 
-            <a v-bind:href='link'>toplearn </a>    
+            <div class="col-md-9">
+              <div class="bordered" v-on:mousemove="getCursor">
+                <p>client x: {{ x }}</p>
+                <p>client y: {{ y }}</p>
+              </div>
             </div>
-            </div>
+            <div class="clearfix"></div>
+          </div>
         </div>
+      </div>
     </div>
-    
-</body>
-<script src="asset/js/vue.js"></script>
-<script src="asset/js/custom.js"></script>
+  </body>
+  <script src="asset/js/vue.js"></script>
+  <script src="asset/js/custom.js"></script>
 </html>
