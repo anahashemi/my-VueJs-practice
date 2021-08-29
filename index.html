@@ -1,50 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylsheet" type="text/css" href="asset/css/bootstrap.min.css" />
-    <title>practice</title>
-    <style>
-      .bordered {
-        border: 2px solid red;
-        width: 300px;
-        height: 300px;
-        padding: 10px;
-        border-radius: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="well">
-          <div id="app">
-            <div class="col-md-3">
-              <a
-                class="btn btn-success btn-block"
-                style="width: 150px; height: 50px"
-                v-on:click="increase(3)"
-              >
-                {{counter}}
-              </a>
-              <p v-once>first:{{counter}}</p>
-              <p>second:{{counter}}</p>
-            </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylsheet"
+            type="text/css"
+            href="./asset/css/bootstrap.min.css"
+        />
+        <title>practice</title>
+        <style>
+            .bordered {
+                border: 2px solid red;
+                width: 300px;
+                height: 300px;
+                padding: 10px;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="well">
+                    <div id="app">
+                        <pre>{{ $data }}</pre>
+                        <div class="col-md-3">
+                            <input type="number" v-model.number="step" />
+                            <button
+                                class="btn btn-success btn-block"
+                                style="width: 150px; height: 50px"
+                                @click="inc2(step)"
+                            >
+                                Increment By {{ step * 2 }}
+                            </button>
+                            <button
+                                class="btn btn-success btn-block"
+                                style="width: 150px; height: 50px"
+                                @click="increase(step)"
+                            >
+                                Increment By {{step}}
+                            </button>
+                            <button
+                                class="btn btn-success btn-block"
+                                style="width: 150px; height: 50px"
+                                @click="decrease(step)"
+                            >
+                                Decrement By {{step}}
+                            </button>
+                            <button
+                                class="btn btn-success btn-block"
+                                style="width: 150px; height: 50px"
+                                @click="dec2(step)"
+                            >
+                                Decrement By {{ step * 2}}
+                            </button>
+                            <p v-once>First: {{ counter }}</p>
+                            <p>Second: {{ counter }} {{ state }} {{ color }} </p>
+                        </div>
 
-            <div class="col-md-9">
-              <div class="bordered" v-on:mousemove="getCursor">
-                <p>client x: {{ x }}</p>
-                <p>client y: {{ y }}</p>
-              </div>
+                        <div class="col-md-9">
+                            <div class="bordered" @mousemove="getCursor">
+                                <p>Client x: {{ x }}</p>
+                                <p>Client y: {{ y }}</p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
             </div>
-            <div class="clearfix"></div>
-          </div>
         </div>
-      </div>
-    </div>
-  </body>
-  <script src="asset/js/vue.js"></script>
-  <script src="asset/js/custom.js"></script>
+
+        <script src="./asset/js/vue.js"></script>
+        <script src="./asset/js/custom.js"></script>
+    </body>
 </html>
